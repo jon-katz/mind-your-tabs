@@ -4,8 +4,8 @@
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
     <title>Node-Link Tree</title>
     
-  <link href="interactive_tree.css" rel="stylesheet" type="text/css" />
-  <script src="js/jquery.js"></script>
+  <link href="chrome-extension://jchdblnmifffadmjoajmgcinclhmealo/css/interactive_tree.css" rel="stylesheet" type="text/css" />
+  <script src="chrome-extension://jchdblnmifffadmjoajmgcinclhmealo/js/jquery.js"></script>
  
   </head>
   <body>
@@ -30,7 +30,7 @@ var vis = d3.select("#chart").append("svg:svg")
   .append("svg:g")
     .attr("transform", "translate(40,0)");
 
-d3.json("chrome-extension://daajdhdihbofnleppfioipmaldajbcaj/js/math_map_compact.json", function(json) {
+d3.json("chrome-extension://jchdblnmifffadmjoajmgcinclhmealo/js/math_map_compact.json", function(json) {
   json.x0 = 800;
   json.y0 = 0;
   update(root = json);
@@ -40,7 +40,6 @@ function update(source) {
 
   // Compute the new tree layout.
   var nodes = tree.nodes(root).reverse();
- console.log(nodes)
   // Update the nodes…
     var node = vis.selectAll("g.node")
       .data(nodes, function(d) { return d.id || (d.id = ++i); });

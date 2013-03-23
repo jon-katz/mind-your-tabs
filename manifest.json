@@ -1,8 +1,9 @@
 {
-  "name": "A browser action with a popup that changes the page color.",
+  "name": "Mind your tabs",
+  "description": "A chrome extension that helps you manage your tabs by visualizing them as mind maps.",
   "version": "1.0",
   "permissions": [
-    "tabs", "<all_urls>"
+    "tabs", "<all_urls>", "webNavigation"
   ],
   "browser_action": {
       "default_title": "Set this page's color.",
@@ -13,7 +14,7 @@
     {
       "matches": ["http://*/*"],
       "js": ["js/jquery.js", "js/colorbox.js", "js/d3.js", "js/hotkeys.js", "js/content-script.js"],
-      "css": ["css/colorbox.css", "css/style.css", "css/interactive-tree.css"]
+      "css": ["css/colorbox.css", "css/style.css", "css/interactive_tree.css"]
     }
   ],
   "web_accessible_resources": [
@@ -23,7 +24,9 @@
        "css/images/overlay.png",
        "css/images/loading_background.png",
        "js/math_map_compact.json",
-       "tabs.html"
+       "js/jquery.js",
+       "tabs.html",
+       "css/interactive_tree.css"
      ],
   "manifest_version": 2
 }

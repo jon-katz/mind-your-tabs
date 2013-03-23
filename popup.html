@@ -1,56 +1,25 @@
 <!doctype html>
 <html>
   <head>
-    <title>Set Page Color Popup</title>
+    <title>Tabber</title>
     <style>
-    body {
-      overflow: hidden;
-      margin: 0px;
-      padding: 0px;
-      background: white;
-    }
+      body {
+        min-width: 357px;
+        overflow-x: hidden;
+      }
 
-    div:first-child {
-      margin-top: 0px;
-    }
-
-    div {
-      cursor: pointer;
-      text-align: center;
-      padding: 1px 3px;
-      font-family: sans-serif;
-      font-size: 0.8em;
-      width: 100px;
-      margin-top: 1px;
-      background: #cccccc;
-    }
-    div:hover {
-      background: #aaaaaa;
-    }
-    #red {
-      border: 1px solid red;
-      color: red;
-    }
-    #blue {
-      border: 1px solid blue;
-      color: blue;
-    }
-    #green {
-      border: 1px solid green;
-      color: green;
-    }
-    #yellow {
-      border: 1px solid yellow;
-      color: yellow;
-    }
+      img {
+        margin: 5px;
+        border: 2px solid black;
+        vertical-align: middle;
+      }
     </style>
-    <script src="js/popup.js"></script>
-    <script src="js/jquery.js"></script>
+    <script type="text/javascript" src="chrome-extension://jchdblnmifffadmjoajmgcinclhmealo/js/jquery.js"></script>       
+    <script src="popup.js"></script>
+    <!-- <script src="http://d3js.org/d3.v3.min.js"></script> -->
   </head>
   <body>
-    <div id="red">red</div>
-    <div id="blue">blue</div>
-    <div id="green">green</div>
-    <div id="yellow">yellow</div>
+  	<ul id="tablist"></ul>
   </body>
 </html>
+

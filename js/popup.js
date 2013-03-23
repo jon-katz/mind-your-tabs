@@ -1,17 +1,33 @@
-// Copyright (c) 2012 The Chromium Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style license that can be
-// found in the LICENSE file.
-
-
-function click(e) {
-  chrome.tabs.executeScript(null,
-      {code:"document.body.style.backgroundColor='" + e.target.id + "'"});
-  window.close();
+function getTabTitle(tab_id){
+	"use strict";
+	var title;
+	chrome.tabs.get(tab_id, function(parent_tab){			
+		title = parent_tab.title;
+	});
+	
+	return deferred.promise();
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-  var divs = document.querySelectorAll('div');
-  for (var i = 0; i < divs.length; i++) {
-    divs[i].addEventListener('click', click);
-  }
+chrome.tabs.query({}, function(tab_array) {	
+	"use strict";	
+	var list = '', tab, i, parent_tab_id, num_tabs;
+	num_tabs = tab_array.length;
+	for (i=0; i < num_tabs; i++)
+	{		
+		tab = tab_array[i];
+		list += '<li>' + tab.title + ": " + tab.url + " parent: ";
+		parent_tab_id = tab.openerTabId;
+		if (parent_tab_id === undefined)
+		{
+			list += 'None';
+		} 
+		else
+		{	
+			// alert(parent_tab_id);
+			list += getTabTitle(parent_tab_id);	
+		}  
+		
+		list += '</li>';		
+	}
+	document.getElementById("tablist").innerHTML = list;
 });
